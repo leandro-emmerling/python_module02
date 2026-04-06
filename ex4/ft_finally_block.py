@@ -2,15 +2,18 @@
 
 
 class PlantError(Exception):
+    """Exception for invalid plant names."""
     def __init__(self, message: str = "Unknown plant error") -> None:
         super().__init__(message)
 
 
 def raise_plant_error() -> None:
+    """Raise a PlantError with an invalid plant name message."""
     raise PlantError("Invalid plant name to water:")
 
 
 def water_plant(plant_name: str) -> None:
+    """Water a plant if its name is capitalized, raise PlantError otherwise."""
     if plant_name == plant_name.capitalize():
         print(f"Watering {plant_name}: [OK]")
     else:
@@ -18,6 +21,7 @@ def water_plant(plant_name: str) -> None:
 
 
 def test_watering_system() -> None:
+    """Test watering system with valid and invalid plant names."""
     print("Testing valid plants...")
     print("Opening watering system")
     try:
